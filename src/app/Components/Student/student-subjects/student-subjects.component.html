@@ -1,0 +1,26 @@
+<navbar></navbar>
+<div class="content">
+  <div class="page-heading">
+    <div class="page-title">{{ pageTitle }}</div>
+  </div>
+  <div *ngIf="subjects.length && subjects.length > 0; else noContent">
+    <div class="card-content">
+      <div
+        (click)="getTests(subject.subjectId)"
+        class="card emboss raise"
+        *ngFor="let subject of subjects"
+      >
+        <p class="card-title highlight">{{ subject.subjectName }}</p>
+        <p class="card-subtitle">{{ subject.testList.length }} tests</p>
+      </div>
+    </div>
+  </div>
+  <ng-template #noContent>
+    <div class="note">
+      <p class="fade">
+        No Subjects Found.
+      </p>
+    </div>
+  </ng-template>
+</div>
+<footer></footer>

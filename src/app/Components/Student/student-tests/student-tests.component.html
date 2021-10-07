@@ -1,0 +1,33 @@
+<navbar></navbar>
+<div class="content">
+  <div class="page-heading">
+    <a routerLink="/student" class="create-button back">Back</a>
+    <div class="page-title">{{ subject.subjectName }} > {{ pageTitle }}</div>
+  </div>
+  <div *ngIf="subject.testList && subject.testList.length > 0; else noContent">
+    <div class="card-content">
+      <div
+        (click)="showReportOrTakeTest(test.testId)"
+        class="card emboss raise"
+        [ngClass]="{ attempted: test.attempted }"
+        *ngFor="let test of subject.testList"
+      >
+        <span *ngIf="test.attempted">Attempted</span>
+        <p class="card-title highlight">{{ test.name }}</p>
+        <p class="card-subtitle">
+          {{ test.numberOfQuest }} quest &nbsp; | &nbsp;
+          {{ test.totalTime }} min
+        </p>
+        <p class="card-meta">by {{ test.user.name }}</p>
+      </div>
+    </div>
+  </div>
+  <ng-template #noContent>
+    <div class="note">
+      <p class="fade">
+        No Tests Found.
+      </p>
+    </div>
+  </ng-template>
+</div>
+<footer></footer>

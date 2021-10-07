@@ -1,0 +1,38 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  flex-direction: column;
+  padding: 2rem 8rem;
+  color: #222;
+
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 16px;
+
+    &:first-child {
+      justify-content: space-around;
+      width: 50%;
+      margin-bottom: 0.8rem;
+      font-size: 22px;
+    }
+  }
+
+  &:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    height: 100%;
+    width: 70%;
+    transform: translateX(-50%);
+    border-top: 2px solid rgba(0, 0, 0, 0.4);
+    z-index: -10;
+  }
+}

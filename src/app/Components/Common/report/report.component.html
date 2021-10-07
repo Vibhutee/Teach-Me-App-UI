@@ -1,0 +1,117 @@
+<navbar></navbar>
+<div class="content">
+  <div class="page-heading">
+    <a routerLink="{{ backLink }}" class="create-button back">Back</a>
+    <div class="page-title">
+      {{ test.subject.name }} > {{ test.name }} > Report
+    </div>
+  </div>
+  <div class="score">
+    <div class="total-quest">{{ test.numberOfQuest }} Questions</div>
+    <div class="marks">
+      Score:
+      <span
+        [ngClass]="{
+          green: marks >= 8,
+          yellow: marks >= 6 && marks < 8,
+          orange: marks >= 4 && marks < 6,
+          red: marks < 4
+        }"
+        >{{ marks }} / 10</span
+      >
+    </div>
+  </div>
+  <div class="difficulty-table">
+    <div class="table">
+      <span class="bold">Questions</span>
+      <span class="bold">Easy</span>
+      <span class="bold">Medium</span>
+      <span class="bold">Hard</span>
+      <span class="bold">Correct</span>
+      <span>{{ easyCorrect }}</span>
+      <span>{{ mediumCorrect }}</span>
+      <span>{{ hardCorrect }}</span>
+      <span class="bold">Total</span>
+      <span>{{ easyTotal }}</span>
+      <span>{{ mediumTotal }}</span>
+      <span>{{ hardTotal }}</span>
+    </div>
+  </div>
+  <div class="questionnaire">
+    <div class="title">Questions</div>
+    <div class="questions">
+      <div *ngFor="let response of responses" class="question">
+        <div class="quest-row">
+          <div
+            class="quest"
+            [ngClass]="{
+              unattempted: response.response === 'NONE',
+              'incorrect-response':
+                response.response !== 'NONE' &&
+                response.question.answer !== response.response,
+              'correct-response': response.question.answer === response.response
+            }"
+          >
+            {{ response.question.description }}
+          </div>
+          <div class="difficulty">{{ response.question.difficulty }}</div>
+        </div>
+        <div class="options">
+          <div
+            class="option1"
+            [ngClass]="{
+              correct: response.question.answer === 'OPTION_1',
+              incorrect:
+                response.question.answer !== response.response &&
+                response.response === 'OPTION_1'
+            }"
+          >
+            {{ response.question.option_1 }}
+          </div>
+          <div
+            class="option2"
+            [ngClass]="{
+              correct: response.question.answer === 'OPTION_2',
+              incorrect:
+                response.question.answer !== response.response &&
+                response.response === 'OPTION_2'
+            }"
+          >
+            {{ response.question.option_2 }}
+          </div>
+          <div
+            class="option3"
+            [ngClass]="{
+              correct: response.question.answer === 'OPTION_3',
+              incorrect:
+                response.question.answer !== response.response &&
+                response.response === 'OPTION_3'
+            }"
+          >
+            {{ response.question.option_3 }}
+          </div>
+          <div
+            class="option4"
+            [ngClass]="{
+              correct: response.question.answer === '4',
+              incorrect:
+                response.question.answer !== response.response &&
+                response.response === 'OPTION_4'
+            }"
+          >
+            {{ response.question.option_4 }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="references">
+    <div class="title">References</div>
+    <ul>
+      <li *ngFor="let ref of references">
+        <a href="{{ ref.link }}">{{ ref.link }} </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<footer></footer>

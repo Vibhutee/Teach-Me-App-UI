@@ -1,0 +1,118 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  color: var(--black);
+
+  .page-heading {
+    .page-title {
+      font-size: 1.8rem;
+    }
+    a {
+      background-color: var(--icon-clr-3);
+      font-size: 1.1rem;
+    }
+  }
+
+  .cheat-sheet {
+    padding: 1rem 5rem 0rem 5rem;
+    p {
+      padding: 3rem 2rem 2rem;
+      position: relative;
+      font-size: 1.1rem;
+
+      &::before {
+        position: absolute;
+        content: "Hint.";
+        top: 0.8rem;
+        left: 1rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .form-container {
+    padding: 0; // resetting root value
+    form {
+      padding: 0; // resetting root value
+      .quest-row {
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 0 0.75rem;
+
+        .quest {
+          position: relative;
+          font-size: 1.3rem;
+
+          &::before {
+            position: absolute;
+            content: "Q.";
+            top: 0;
+            left: -1.75rem;
+            height: 100%;
+            font-size: 1.2rem;
+            font-weight: 600;
+          }
+        }
+        .difficulty {
+          font-size: 1.1rem;
+          margin-left: 1rem;
+        }
+      }
+      .options {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+
+        .op-set {
+          display: flex;
+          margin: 0.4rem;
+
+          input[type="radio"] {
+            margin: 0.25rem 0.75rem 0.25rem 0.5rem;
+          }
+          label {
+            font-size: 1.1rem;
+            max-width: 90%; // to avoid it pushing the radio button
+          }
+        }
+      }
+      .navigate {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0.5rem 0;
+        margin-top: 1rem;
+        p {
+          color: rgb(179, 41, 41);
+          text-align: center;
+          font-size: 1.1rem;
+
+          width: 50%;
+        }
+        button {
+          padding: 5px 8px;
+          border-radius: 5px;
+          font-size: 1.1rem;
+          background-color: var(--icon-clr-1);
+          color: white;
+          margin: 0 auto 0;
+          border: none;
+          cursor: pointer;
+          transition: all 0.25s ease-in-out;
+          &:hover {
+            background: #2689c1;
+          }
+        }
+      }
+    }
+  }
+
+  .remaining {
+    text-align: center;
+    width: 100%;
+    font-size: 1.1rem;
+  }
+}

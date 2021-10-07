@@ -1,0 +1,29 @@
+<navbar></navbar>
+<div class="content">
+  <div class="page-heading">
+    <a routerLink="/tutor/tests" class="create-button back">Back</a>
+    <div class="page-title">{{ subject.name }} > {{ test }} > Student List</div>
+  </div>
+  <div
+    *ngIf="studentList && studentList.length > 0; else noContent"
+    class="container"
+  >
+    <ul>
+      <li
+        *ngFor="let student of studentList"
+        routerLink="/report"
+        [queryParams]="{ userId: student.userId, testId: testId }"
+      >
+        <label>{{ student.name }}</label>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noContent>
+    <div class="note">
+      <p class="fade">
+        No data Found, when students give test, list will appear!
+      </p>
+    </div>
+  </ng-template>
+</div>
+<footer></footer>

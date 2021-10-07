@@ -1,0 +1,289 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Poppins&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  // outline: 1px solid brown;
+}
+
+body {
+  background-color: rgb(240, 240, 240);
+  &::-webkit-scrollbar {
+    width: 8px;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--icon-clr-2);
+    border-radius: 10px;
+  }
+}
+
+:root {
+  --nav-clr-1: rgba(12, 16, 54, 0.77);
+  --nav-clr-2: #fff;
+  --nav-text-clr-1: white;
+  --nav-text-clr-2: black;
+  --tranistion: all 0.25s ease-in-out;
+
+  --text-color: rgba(12, 16, 54, 0.77);
+  --icon-clr-1: #2d9cdb;
+  --icon-clr-2: #f2c94c;
+  --icon-clr-3: #eb5757;
+  --vector-clr: #f4f773;
+  --centre-frame-clr: rgba(191, 247, 240, 0.65);
+  --arc-clr: #eb5757;
+
+  --black: #0a1128c9;
+  --shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+
+  --emboss: 6px 6px 10px rgba(0, 0, 0, 0.1),
+    -6px -6px 10px rgba(255, 255, 255, 0.8);
+  --deboss: inset 6px 6px 10px rgba(0, 0, 0, 0.1),
+    inset -6px -6px 10px rgba(255, 255, 255, 0.8);
+}
+
+// ----------------------
+// General
+// ----------------------
+
+.content {
+  min-height: calc(100vh - 70px);
+  margin: 0.5rem 2rem 1.5rem 2rem;
+  color: var(--black);
+}
+
+.page-heading {
+  display: flex;
+  padding: 1rem 6rem 1rem 6rem;
+  justify-content: space-between;
+  font-size: 20px;
+  position: relative;
+  .page-title {
+    line-height: 36px;
+  }
+  .back {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+  }
+  .create-button {
+    text-decoration: none;
+    color: white;
+    background: var(--icon-clr-1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+      background: #2689c1;
+    }
+  }
+}
+
+.card-content {
+  padding: 1rem 8rem 0 8rem;
+
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+  color: rgba(0, 0, 0, 0.7);
+
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.75em 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+
+    .card-title {
+      font-size: 1.8rem;
+      position: relative;
+    }
+
+    .card-subtitle {
+      font-size: 1.2rem;
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    .highlight:before {
+      position: absolute;
+      content: "";
+      background: var(--vector-clr);
+      top: 50%;
+      left: -5px;
+      width: 0%;
+      height: 50%;
+      z-index: -10;
+      transition: all 0.25s ease-in-out;
+    }
+
+    &:hover .highlight:before {
+      width: 100%;
+    }
+  }
+}
+
+.form-container {
+  padding: 1rem 10rem 2rem;
+  font-size: 1.2rem;
+
+  form {
+    padding: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .form-element {
+      margin: 0.5rem 0;
+      display: flex;
+      width: 85%;
+      flex-direction: column;
+
+      input,
+      textarea,
+      button {
+        padding: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        color: var(--black);
+        font-size: 1rem;
+      }
+      textarea {
+        min-height: 100px;
+      }
+      input[type="File"] {
+        border: none;
+      }
+      button {
+        background-color: var(--icon-clr-1);
+        color: white;
+        width: 70%;
+        margin: 0 auto 0;
+        border: none;
+        transition: all 0.25s ease-in-out;
+        cursor: pointer;
+        &:hover {
+          background: #2689c1;
+        }
+
+        &[type="reset"] {
+          background-color: var(--icon-clr-3);
+          &:hover {
+            background-color: #cc3c3c;
+          }
+        }
+      }
+    }
+
+    .row {
+      display: flex;
+      width: 85%;
+
+      .form-element:first-of-type input {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+.note {
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+}
+
+input[type="radio"] {
+  appearance: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--black);
+  transition: 0.25s all ease-in-out;
+
+  &:not(:checked):hover {
+    background-color: rgba(41, 109, 148, 0.3);
+  }
+
+  &:checked {
+    border: 6px solid rgb(41, 109, 148);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// ----------------------
+// Text
+// ----------------------
+
+.fade {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+// ----------------------
+// Transition
+// ----------------------
+
+.pop {
+  transform: scale(1);
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.raise {
+  transform: translateY(0);
+  transition: all 0.25s ease-in-out;
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+// ----------------------
+// Neuphormism Demos
+// ----------------------
+
+.emboss {
+  box-shadow: var(--emboss);
+}
+
+.deboss {
+  box-shadow: var(--deboss);
+}
+
+// ----------------------
+// KeyFrames
+// ----------------------
+
+@keyframes icon-spicy-move {
+  0% {
+    cy: 10.85;
+  }
+  50% {
+    cy: 0;
+  }
+  100% {
+    cy: 10.85;
+  }
+}

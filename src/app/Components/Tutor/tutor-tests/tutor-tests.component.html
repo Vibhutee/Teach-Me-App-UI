@@ -1,0 +1,42 @@
+<navbar></navbar>
+<div class="content">
+  <div class="page-heading">
+    <a routerLink="/tutor" class="create-button back">Back</a>
+    <div class="page-title">{{ subject.subjectName }} > {{ pageTitle }}</div>
+    <a
+      routerLink="uploadTest"
+      [queryParams]="{ subjectId: subject.subjectId }"
+      class="create-button"
+      >Create new Test</a
+    >
+  </div>
+  <div
+    *ngIf="
+      subject.testList.length && subject.testList.length > 0;
+      else noContent
+    "
+  >
+    <div class="card-content">
+      <div
+        (click)="goToStudentList(test.testId, subject.subjectId)"
+        class="card emboss raise"
+        *ngFor="let test of subject.testList"
+      >
+        <p class="card-title highlight">{{ test.name }}</p>
+        <p class="card-subtitle">
+          {{ test.numberOfQuest }} quest &nbsp; | &nbsp;
+          {{ test.totalTime }} min
+        </p>
+        <p class="card-meta">by {{ test.user.name }}</p>
+      </div>
+    </div>
+  </div>
+  <ng-template #noContent>
+    <div class="note">
+      <p class="fade">
+        No Tests Found, Please create new Test first!
+      </p>
+    </div>
+  </ng-template>
+</div>
+<footer></footer>

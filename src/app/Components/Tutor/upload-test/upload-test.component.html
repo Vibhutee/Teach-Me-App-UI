@@ -1,0 +1,111 @@
+<navbar></navbar>
+<div class="content">
+  <div class="page-heading">
+    <div class="page-title">{{ subject.name }} > New Test</div>
+  </div>
+  <div class="form-container">
+    <form
+      #myForm="ngForm"
+      [formGroup]="myFormGroup"
+      class="emboss"
+      (ngSubmit)="submitForm(myForm)"
+      enctype="multipart/form-data"
+    >
+      <div class="row">
+        <div class="form-element">
+          <label for="subject-name">Subject</label>
+          <input
+            type="text"
+            name="subjectName"
+            id="subject-name"
+            value="{{ subject.name }}"
+            disabled
+          />
+        </div>
+
+        <div class="form-element">
+          <label for="test-name">Test</label>
+          <input
+            type="text"
+            name="testName"
+            formControlName="testName"
+            id="test-name"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-element">
+        <label for="cheat-sheet">Cheat Sheet</label>
+        <textarea
+          type="text"
+          name="cheatSheet"
+          formControlName="cheatSheet"
+          id="cheat-sheet"
+          placeholder="Hints for Student..."
+        ></textarea>
+      </div>
+
+      <div class="row">
+        <div class="form-element">
+          <label for="total-question">Total Question</label>
+          <input
+            type="number"
+            name="totalQuestion"
+            formControlName="totalQuestion"
+            id="total-question"
+            required
+          />
+        </div>
+
+        <div class="form-element">
+          <label for="total-time">Total Time</label>
+          <input
+            type="number"
+            name="totalTime"
+            formControlName="totalTime"
+            id="total-time"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-element">
+        <label for="references">References</label>
+        <input
+          type="url"
+          name="references"
+          formControlName="references"
+          id="references"
+        />
+      </div>
+
+      <div class="form-element">
+        <label for="file">Upload File</label>
+        <input
+          type="file"
+          name="file"
+          formControlName="file"
+          id="file"
+          (change)="selectFile($event)"
+        />
+      </div>
+
+      <div class="row">
+        <div class="form-element">
+          <button type="submit">Submit</button>
+        </div>
+        <div class="form-element">
+          <button
+            type="reset"
+            routerLink="/tutor/tests"
+            [queryParams]="{ subjectId: subject.subjectId }"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<footer></footer>

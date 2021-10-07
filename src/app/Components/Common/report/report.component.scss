@@ -1,0 +1,253 @@
+.score {
+  //   background-color: lightblue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.25rem;
+
+  .marks {
+    .green,
+    .yellow,
+    .orange,
+    .red {
+      padding: 5px;
+      border-radius: 15px;
+    }
+    .green {
+      background-color: lightgreen;
+    }
+    .yellow {
+      background-color: #ffff0085;
+    }
+    .orange {
+      background-color: #ffa50082;
+    }
+    .red {
+      background-color: #ff000063;
+    }
+  }
+}
+
+.difficulty-table {
+  margin: 2rem;
+  position: relative;
+  display: grid;
+  place-items: center;
+  .table {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    span {
+      justify-self: center;
+      padding: 3px;
+      font-size: 1.2rem;
+    }
+    .bold {
+      font-weight: 600;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 80%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+}
+
+.questionnaire {
+  margin: 2rem;
+
+  width: auto;
+  position: relative;
+
+  .title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1em;
+  }
+  .questions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .question {
+      width: 80%;
+      margin-bottom: 2rem;
+      .quest-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        .quest {
+          position: relative;
+          font-size: 1.2em;
+
+          &::before {
+            position: absolute;
+            content: "Q.";
+            top: -2px;
+            left: -1.75rem;
+            height: 100%;
+            font-size: 1.2em;
+            font-weight: 600;
+          }
+        }
+
+        .unattempted,
+        .correct-response,
+        .incorrect-response {
+          position: relative;
+          font-size: 1.2em;
+
+          &::after {
+            position: absolute;
+            top: -1.25em;
+            left: -1.75rem;
+            height: 1.2em;
+            font-size: 1em;
+            font-weight: 600;
+
+            transform-origin: center;
+          }
+        }
+        .unattempted {
+          &::after {
+            content: "Not Attempted";
+            color: #f06145;
+          }
+        }
+        .correct-response {
+          &::after {
+            content: "Correct";
+            color: #3ec037;
+          }
+        }
+        .incorrect-response {
+          &::after {
+            content: "Incorrect";
+            color: #f06145;
+          }
+        }
+        .difficulty {
+          font-size: 1.1rem;
+          margin-left: 1rem;
+        }
+      }
+      .options {
+        margin-left: 0.75rem;
+
+        .option1,
+        .option2,
+        .option3,
+        .option4 {
+          margin: 0.25rem;
+          margin-right: 2rem;
+          padding: 0.25rem;
+          padding-left: 1.6rem;
+          border-radius: 5px;
+          position: relative;
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 2px;
+            height: 100%;
+            padding: 0.25rem;
+            width: 100%;
+          }
+        }
+
+        .option1 {
+          &::before {
+            content: "A.";
+          }
+        }
+        .option2 {
+          &::before {
+            content: "B.";
+          }
+        }
+        .option3 {
+          &::before {
+            content: "C.";
+          }
+        }
+        .option4 {
+          &::before {
+            content: "D.";
+          }
+        }
+
+        .incorrect {
+          border: 2px solid #ff000063;
+          background-color: #ffa07a5e;
+          position: relative;
+
+          &::after {
+            position: absolute;
+            content: "❌";
+            top: 0;
+            left: -2rem;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            font-size: 1.3rem;
+          }
+        }
+        .correct {
+          border: 2px solid #4ec54e;
+          background-color: #baf3ba;
+          position: relative;
+
+          &::after {
+            position: absolute;
+            content: "✔️";
+            top: 0;
+            left: -2rem;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 80%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  }
+}
+
+.references {
+  margin: 2rem;
+  width: auto;
+  position: relative;
+
+  .title {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+  ul {
+    display: grid;
+    place-items: center;
+    li {
+      width: 60%;
+      list-style: decimal;
+    }
+  }
+}

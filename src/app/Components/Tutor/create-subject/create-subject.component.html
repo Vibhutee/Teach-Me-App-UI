@@ -1,0 +1,35 @@
+<navbar></navbar>
+<div class="content">
+  <div class="page-heading">
+    <div class="page-title">New Subject</div>
+  </div>
+  <div class="form-container">
+    <div *ngIf="showErrorMessage" class="errorMsg">
+      <span class="msg">{{ errorMessage }}</span>
+      <button class="closeMsg" (click)="showErrorMessage = !showErrorMessage">
+        x
+      </button>
+    </div>
+    <form class="emboss" (ngSubmit)="submitForm()">
+      <div class="form-element">
+        <label for="subject">Subject</label>
+        <input
+          type="text"
+          name="subject"
+          [(ngModel)]="subject"
+          id="subject"
+          required
+        />
+      </div>
+      <div class="row">
+        <div class="form-element">
+          <button type="submit">Submit</button>
+        </div>
+        <div class="form-element">
+          <button type="reset" routerLink="/tutor">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<footer></footer>

@@ -1,0 +1,160 @@
+<div class="login-content">
+  <div class="left">
+    <div class="left-container">
+      <svg class="logo-icon" viewBox="0 0 61 21">
+        <circle cx="10.4143" cy="10.85" r="10" />
+        <circle cx="30.4143" cy="10.85" r="10" />
+        <circle cx="50.4143" cy="10.85" r="10" />
+      </svg>
+      <div class="app-title">
+        <p>TeachMe</p>
+      </div>
+      <div class="app-about">
+        <ul>
+          <li>Give Tests</li>
+          <li>Get personalized reports</li>
+          <li>Learn on your schedule</li>
+          <li>Learning for anyone, anywhere</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="form-title">{{ formTitle }}</div>
+    <hr />
+
+    <!-- login form -->
+    <form
+      #loginForm="ngForm"
+      [formGroup]="loginFormGroup"
+      *ngIf="showLoginForm"
+      (ngSubmit)="submitForm(loginForm)"
+    >
+      <div class="form-element">
+        <label for="email">Email</label>
+        <input type="email" name="email" formControlName="email" id="email" />
+      </div>
+      <div class="form-element">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          formControlName="password"
+          id="password"
+        />
+      </div>
+      <!-- <div class="form-element">
+        <label for="userType">User Type</label>
+        <div class="options">
+          <input
+            type="radio"
+            name="userType"
+            formControlName="userType"
+            id="uType-student"
+            value="Student"
+            checked
+          />
+          <label for="uType-student">Student</label>
+          <input
+            type="radio"
+            name="userType"
+            formControlName="userType"
+            id="uType-tutor"
+            value="Tutor"
+          />
+          <label for="uType-tutor">Tutor</label>
+        </div>
+      </div> -->
+
+      <div class="form-element">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+    <!-- register form -->
+    <form
+      #registerForm="ngForm"
+      [formGroup]="registerFormGroup"
+      *ngIf="!showLoginForm"
+      (ngSubmit)="submitForm(registerForm)"
+    >
+      <div class="form-element">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          formControlName="name"
+          id="name"
+          required
+        />
+      </div>
+      <div class="form-element">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          formControlName="email"
+          id="email"
+          required
+        />
+      </div>
+      <div class="form-element">
+        <label for="contact">Contact</label>
+        <input
+          type="tel"
+          name="contact"
+          formControlName="contact"
+          id="contact"
+        />
+      </div>
+      <div class="form-element">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          formControlName="password"
+          id="password"
+          required
+        />
+      </div>
+      <div class="form-element">
+        <label for="userType">User Type</label>
+        <div class="options">
+          <input
+            type="radio"
+            name="userType"
+            formControlName="userType"
+            id="uType-student"
+            value="STUDENT"
+            checked
+          />
+          <label for="uType-student">Student</label>
+          <input
+            type="radio"
+            name="userType"
+            formControlName="userType"
+            id="uType-tutor"
+            value="TUTOR"
+          />
+          <label for="uType-tutor">Tutor</label>
+        </div>
+      </div>
+
+      <div class="form-element">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+
+    <div *ngIf="showErrorMessage" class="errorMsg">
+      <span class="msg">{{ errorMessage }}</span>
+      <button class="closeMsg" (click)="showErrorMessage = !showErrorMessage">
+        x
+      </button>
+    </div>
+
+    <a *ngIf="showLoginForm" (click)="switchForm()"
+      >Don't have account, register here!</a
+    >
+    <a *ngIf="!showLoginForm" (click)="switchForm()">Go to login form!</a>
+  </div>
+</div>

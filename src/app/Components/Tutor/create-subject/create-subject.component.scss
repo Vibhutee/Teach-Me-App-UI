@@ -1,0 +1,29 @@
+.errorMsg {
+  background-color: lightcoral;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 5px;
+  button {
+    height: 1.8rem;
+    width: 1.8rem;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border: none;
+    transition: all 0.25s ease-in-out;
+
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
